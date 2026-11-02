@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/estil.css">
+<title>PHP</title>
+<link rel="icon" type="image/x-icon" href="images/favicon.png">
+</head>
+<body>
+
+<!-- Capçalera -->
+<div class="cap">
+  <img src="images/logo.svg" alt="PHP" width="100">
+  <h3>A popular general-purpose scripting language that is especially suited to web development.</h3>
+</div>
+
+<!-- menú -->
+<div style="overflow:auto">
+  <div class="menu">
+    <a href="#">Downloads</a>
+    <a href="#">Documentation</a>
+    <a href="#">Get Involved</a>
+    <a href="#">Help</a>
+  </div>
+
+<!-- Cos principal -->
+  <div class="main">
+ <h3>Updated PHP Windows builds for Brotli security fix</h3>
+
+<p>The PHP team announces updated Windows builds: PHP 8.5.12-1, 8.4.27-1, 8.3.36-1 and 8.2.35-1. These builds include Brotli 1.2.1, which fixes CVE-2026-111497, an out-of-bounds write vulnerability in Brotli decompression.</p>
+
+<p>In PHP Windows builds, the vulnerable decoder can be reached through the cURL extension when automatic HTTP response decompression is enabled. This is disabled by default in cURL, but applications and HTTP client libraries can enable it.</p>
+
+<p>The -1 suffix identifies a Windows package rebuild with updated dependencies. These builds use the same PHP source releases, and the PHP runtime versions remain unchanged.</p>
+
+<p>The updated packages are available on the downloads page.</p>
+
+<h3>Informational advisory: Session upload progress</h3>
+
+<p>We suggest you set session.upload_progress.enabled=0 until the next regular bugfix release, to fully protect from an unlikely RCE vector. This setting was already listed as a mitigation in the GHSA-6wmf-4rv5-p3rp advisory for CVE-2026-109619 published on Oct 21st, 2026. If you applied it then, keep it in place and no further action is needed.</p>
+
+<p>The issue can only occur under an unusual combination of configuration and application code. An application must set session.serialize_handler to php_binary or php_serialize in its configuration and then switch it to php at runtime with ini_set() before calling session_start(). Session upload progress must also still be enabled. Applications that never change the serialize handler at runtime can keep the feature enabled. Since this setup is unlikely in practice, we are handling it in the regular release cycle and will publish a full advisory for CVE-2026-115560 with the next release.</p>
+
+<h3>Security advisory: Critical remote code execution vulnerabilities, update now</h3>
+
+<p>PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35 fix two critical vulnerabilities that can allow unauthenticated remote code execution. All PHP users are strongly encouraged to update immediately.</p>
+
+<p>Who is at risk: all PHP installations serving web requests, including PHP-FPM, Apache with mod_php, php-cgi, FrankenPHP and LiteSpeed. We consider the risk highest for mod_php, with a demonstrated exploit where an unauthenticated request can trigger the attack before any application code runs.</p>
+
+<p>The vulnerabilities:
+    <ul>RCE via OOM corruption, CVE-2026-109618 (GHSA-w8hw-w9fx-j79w): out-of-memory handling can interrupt PHP while internal request data is only partially initialized. Request cleanup may then treat the invalid data as valid.</ul>
+    <ul>RCE via stale global state, CVE-2026-109619 (GHSA-6wmf-4rv5-p3rp): request-owned internal state can survive after its backing memory has been freed. A later request handled by the same worker may use that stale state before normal initialization resets it.</ul>
+</p>
+
+  </div>
+
+<!-- Columna dreta -->
+  <div class="right">
+    <img src="images/logo.svg" alt="PHP" width="100">
+    <p>PHP is developed and maintained by a global community of contributors. The PHP Foundation helps fund this work. If PHP is part of your business or projects, consider sponsoring the Foundation.</p>
+    <a href="https://www.linkedin.com/company/phpnet/"><img src="images/linkedin.png" alt="social" width="30"></a>
+    <a href="https://fosstodon.org/@php"><img src="images/mastodon.png" alt="social" width="30"></a>
+    <a href="https://github.com/php/"><img src="images/github.png" alt="social" width="30"></a>
+  </div>
+</div>
+
+<!-- Peu de pàgina -->
+<div class="peu">
+  Copyright © 2001-2026 El Grup PHP.
+</div>
+
+</body>
+</html>
